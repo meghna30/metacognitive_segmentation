@@ -10,15 +10,15 @@ Install requirements.yaml to setup the python environment.
    _models get stored in the checkpoints folder, make sure to set correct data paths_
      
 
-4. To generate the training data for the metacognitive model
+3. To generate the training data for the metacognitive model
 
-  Train set :
+     train set :
   
-    python main.py --model deeplabv3plus_resnet101 --gpu_id 0  --lr 0.1  --crop_size 768 --batch_size 4 --output_stride 16 --data_root /data/cityscapes --test_only --ckpt checkpoints/maxent_model.pt --baseline --save_umetrics --meta_save_path ./meta_data/train/ --meta_train_data
+    `python main.py --model deeplabv3plus_resnet101 --gpu_id 0  --lr 0.1  --crop_size 768 --batch_size 4 --output_stride 16 --data_root /data/cityscapes --test_only --ckpt checkpoints/maxent_model.pt --baseline --save_umetrics --meta_save_path ./meta_data/train/ --meta_train_data`
 
-   Val set 
+     val set 
 
-    python main.py --model deeplabv3plus_resnet101 --gpu_id 0  --lr 0.1  --crop_size 768 --batch_size 4 --output_stride 16 --data_root /data/cityscapes --test_only --ckpt checkpoints/maxent_model.pt --baseline --save_umetrics --meta_save_path /meta_data/val/
+    `python main.py --model deeplabv3plus_resnet101 --gpu_id 0  --lr 0.1  --crop_size 768 --batch_size 4 --output_stride 16 --data_root /data/cityscapes --test_only --ckpt checkpoints/maxent_model.pt --baseline --save_umetrics --meta_save_path /meta_data/val/`
 
 
 4. To train the metacognition network, navigate to the uncertainty folder 
