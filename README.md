@@ -7,25 +7,25 @@ Install requirements.yaml to setup the python environment.
 
  `python main.py --model deeplabv3plus_resnet101 --dataset cityscapes --gpu_id 0  --lr 0.1  --crop_size 768 --batch_size 4 --output_stride 16 --data_root /data/cityscapes --model_tag maxent_model --baseline --ood_train_data --entropy_reg --sigma 0.06`
 
-   *models get stored in the checkpoints folder, make sure to set correct data paths
+   _models get stored in the checkpoints folder, make sure to set correct data paths_
      
 
 4. To generate the training data for the metacognitive model
 
   Train set :
   
-    `python main.py --model deeplabv3plus_resnet101 --gpu_id 0  --lr 0.1  --crop_size 768 --batch_size 4 --output_stride 16 --data_root /data/cityscapes --test_only --ckpt checkpoints/maxent_model.pt --baseline --save_umetrics --meta_save_path ./meta_data/train/ --meta_train_data `
+    python main.py --model deeplabv3plus_resnet101 --gpu_id 0  --lr 0.1  --crop_size 768 --batch_size 4 --output_stride 16 --data_root /data/cityscapes --test_only --ckpt checkpoints/maxent_model.pt --baseline --save_umetrics --meta_save_path ./meta_data/train/ --meta_train_data
 
    Val set 
 
-    `python main.py --model deeplabv3plus_resnet101 --gpu_id 0  --lr 0.1  --crop_size 768 --batch_size 4 --output_stride 16 --data_root /data/cityscapes --test_only --ckpt checkpoints/maxent_model.pt --baseline --save_umetrics --meta_save_path /meta_data/val/`
+    python main.py --model deeplabv3plus_resnet101 --gpu_id 0  --lr 0.1  --crop_size 768 --batch_size 4 --output_stride 16 --data_root /data/cityscapes --test_only --ckpt checkpoints/maxent_model.pt --baseline --save_umetrics --meta_save_path /meta_data/val/
 
 
 4. To train the metacognition network, navigate to the uncertainty folder 
 
      `python meta_main.py --save_path metacog --train --no_channels 2 --batch_size 4 --folder_tag meta_data `
  
-    *make sure the that the folder tag and data paths in meta_main.py point to the right directories
+    _make sure the that the folder tag and data paths in meta_main.py point to the right directories_
     
 
 5. To generate the OOD test data for the metacognitive model
@@ -37,8 +37,8 @@ Install requirements.yaml to setup the python environment.
 
     `python meta_main.py --ckpt metacog/model.pt --eval --no_channels 2 --batch_size 1 --folder_tag meta_data --ood_tag fs_val --single_model 
 `
-   *for fishyscapes datsets uncomment line 50 in uncertainty/dataloder.py
 
+      _for fishyscapes datsets uncomment line 50 in uncertainty/dataloder.py_
 
 # Training Details 
 
